@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.enums.FieldFill;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jlwl.lhcnyxxglxt.utils.DateUtil;
+import lombok.Getter;
 import org.springframework.beans.BeanUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,8 +23,9 @@ import java.util.Date;
  * @author 
  * @email
  */
+@Getter
 @TableName("forum")
-public class ForumEntity<T> implements Serializable {
+public class ForumEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -31,13 +33,12 @@ public class ForumEntity<T> implements Serializable {
 
 	}
 
-	public ForumEntity(T t) {
-		BeanUtils.copyProperties(this, t);
-	}
-
 
     /**
      * 主键
+     * -- GETTER --
+     *  获取：主键
+
      */
     @TableId(type = IdType.AUTO)
     @ColumnInfo(comment="主键",type="int(11)")
@@ -48,6 +49,9 @@ public class ForumEntity<T> implements Serializable {
 
     /**
      * 帖子标题
+     * -- GETTER --
+     *  获取：帖子标题
+
      */
     @ColumnInfo(comment="帖子标题",type="varchar(200)")
     @TableField(value = "forum_name")
@@ -57,6 +61,9 @@ public class ForumEntity<T> implements Serializable {
 
     /**
      * 用户
+     * -- GETTER --
+     *  获取：用户
+
      */
     @ColumnInfo(comment="用户",type="int(11)")
     @TableField(value = "yonghu_id")
@@ -65,6 +72,9 @@ public class ForumEntity<T> implements Serializable {
 
     /**
      * 种植户
+     * -- GETTER --
+     *  获取：种植户
+
      */
     @ColumnInfo(comment="种植户",type="int(11)")
     @TableField(value = "zhongzhihu_id")
@@ -74,6 +84,9 @@ public class ForumEntity<T> implements Serializable {
 
     /**
      * 管理员
+     * -- GETTER --
+     *  获取：管理员
+
      */
     @ColumnInfo(comment="管理员",type="int(11)")
     @TableField(value = "users_id")
@@ -83,15 +96,20 @@ public class ForumEntity<T> implements Serializable {
 
     /**
      * 发布内容
+     * -- GETTER --
+     *  获取：发布内容
+
      */
     @ColumnInfo(comment="发布内容",type="longtext")
     @TableField(value = "forum_content")
-
     private String forumContent;
 
 
     /**
      * 父id
+     * -- GETTER --
+     *  获取：父id
+
      */
     @ColumnInfo(comment="父id",type="int(11)")
     @TableField(value = "super_ids")
@@ -101,6 +119,9 @@ public class ForumEntity<T> implements Serializable {
 
     /**
      * 帖子状态
+     * -- GETTER --
+     *  获取：帖子状态
+
      */
     @ColumnInfo(comment="帖子状态",type="int(11)")
     @TableField(value = "forum_state_types")
@@ -110,6 +131,9 @@ public class ForumEntity<T> implements Serializable {
 
     /**
      * 发帖时间
+     * -- GETTER --
+     *  获取：发帖时间
+
      */
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat
@@ -121,6 +145,9 @@ public class ForumEntity<T> implements Serializable {
 
     /**
      * 修改时间
+     * -- GETTER --
+     *  获取：修改时间
+
      */
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat
@@ -132,6 +159,9 @@ public class ForumEntity<T> implements Serializable {
 
     /**
      * 创建时间
+     * -- GETTER --
+     *  获取：创建时间
+
      */
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat
@@ -142,24 +172,13 @@ public class ForumEntity<T> implements Serializable {
 
 
     /**
-	 * 获取：主键
-	 */
-    public Integer getId() {
-        return id;
-    }
-    /**
 	 * 设置：主键
 	 */
 
     public void setId(Integer id) {
         this.id = id;
     }
-    /**
-	 * 获取：帖子标题
-	 */
-    public String getForumName() {
-        return forumName;
-    }
+
     /**
 	 * 设置：帖子标题
 	 */
@@ -167,12 +186,7 @@ public class ForumEntity<T> implements Serializable {
     public void setForumName(String forumName) {
         this.forumName = forumName;
     }
-    /**
-	 * 获取：用户
-	 */
-    public Integer getYonghuId() {
-        return yonghuId;
-    }
+
     /**
 	 * 设置：用户
 	 */
@@ -180,12 +194,7 @@ public class ForumEntity<T> implements Serializable {
     public void setYonghuId(Integer yonghuId) {
         this.yonghuId = yonghuId;
     }
-    /**
-	 * 获取：种植户
-	 */
-    public Integer getZhongzhihuId() {
-        return zhongzhihuId;
-    }
+
     /**
 	 * 设置：种植户
 	 */
@@ -193,12 +202,7 @@ public class ForumEntity<T> implements Serializable {
     public void setZhongzhihuId(Integer zhongzhihuId) {
         this.zhongzhihuId = zhongzhihuId;
     }
-    /**
-	 * 获取：管理员
-	 */
-    public Integer getUsersId() {
-        return usersId;
-    }
+
     /**
 	 * 设置：管理员
 	 */
@@ -206,12 +210,7 @@ public class ForumEntity<T> implements Serializable {
     public void setUsersId(Integer usersId) {
         this.usersId = usersId;
     }
-    /**
-	 * 获取：发布内容
-	 */
-    public String getForumContent() {
-        return forumContent;
-    }
+
     /**
 	 * 设置：发布内容
 	 */
@@ -219,12 +218,7 @@ public class ForumEntity<T> implements Serializable {
     public void setForumContent(String forumContent) {
         this.forumContent = forumContent;
     }
-    /**
-	 * 获取：父id
-	 */
-    public Integer getSuperIds() {
-        return superIds;
-    }
+
     /**
 	 * 设置：父id
 	 */
@@ -232,12 +226,7 @@ public class ForumEntity<T> implements Serializable {
     public void setSuperIds(Integer superIds) {
         this.superIds = superIds;
     }
-    /**
-	 * 获取：帖子状态
-	 */
-    public Integer getForumStateTypes() {
-        return forumStateTypes;
-    }
+
     /**
 	 * 设置：帖子状态
 	 */
@@ -245,12 +234,7 @@ public class ForumEntity<T> implements Serializable {
     public void setForumStateTypes(Integer forumStateTypes) {
         this.forumStateTypes = forumStateTypes;
     }
-    /**
-	 * 获取：发帖时间
-	 */
-    public Date getInsertTime() {
-        return insertTime;
-    }
+
     /**
 	 * 设置：发帖时间
 	 */
@@ -258,12 +242,7 @@ public class ForumEntity<T> implements Serializable {
     public void setInsertTime(Date insertTime) {
         this.insertTime = insertTime;
     }
-    /**
-	 * 获取：修改时间
-	 */
-    public Date getUpdateTime() {
-        return updateTime;
-    }
+
     /**
 	 * 设置：修改时间
 	 */
@@ -271,12 +250,7 @@ public class ForumEntity<T> implements Serializable {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
-    /**
-	 * 获取：创建时间
-	 */
-    public Date getCreateTime() {
-        return createTime;
-    }
+
     /**
 	 * 设置：创建时间
 	 */

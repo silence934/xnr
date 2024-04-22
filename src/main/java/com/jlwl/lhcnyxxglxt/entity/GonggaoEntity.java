@@ -23,16 +23,12 @@ import java.util.Date;
  * @email
  */
 @TableName("gonggao")
-public class GonggaoEntity<T> implements Serializable {
+public class GonggaoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
 	public GonggaoEntity() {
 
-	}
-
-	public GonggaoEntity(T t) {
-		BeanUtils.copyProperties(this, t);
 	}
 
 

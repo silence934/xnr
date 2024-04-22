@@ -44,39 +44,12 @@ public class GonggaoController {
     @Autowired
     private GonggaoService gonggaoService;
 
-
-    @Autowired
-    private TokenService tokenService;
-
-    @Autowired
-    private AddressService addressService;//收货地址
-    @Autowired
-    private CartService cartService;//购物车
-    @Autowired
-    private ChanpinService chanpinService;//农产品
-    @Autowired
-    private ChanpinCollectionService chanpinCollectionService;//农产品收藏
-    @Autowired
-    private ChanpinCommentbackService chanpinCommentbackService;//农产品评价
-    @Autowired
-    private ChanpinOrderService chanpinOrderService;//农产品订单
     @Autowired
     private DictionaryService dictionaryService;//字典
     @Autowired
-    private ForumService forumService;//论坛
+    private GonggaoPinglunService gonggaoPinglunService;
     @Autowired
-    private JishuService jishuService;//农业技术
-    @Autowired
-    private NongziService nongziService;//农资
-    @Autowired
-    private NongziOrderService nongziOrderService;//农资订单
-    @Autowired
-    private YonghuService yonghuService;//用户
-    @Autowired
-    private ZhongzhihuService zhongzhihuService;//种植户
-    @Autowired
-    private UsersService usersService;//管理员
-
+    private YonghuService yonghuService;
 
     /**
     * 后端列表
@@ -307,6 +280,44 @@ public class GonggaoController {
         }else {
             return R.error(511,"表中有相同数据");
         }
+    }
+
+
+    @RequestMapping("/pinglin/list/{id}")
+    public R list(@PathVariable("id") Long id, HttpServletRequest request){
+        GonggaoPinglunEntity pinglun = new GonggaoPinglunEntity();
+        pinglun.setGonggaoId(id);
+//        Integer userId = (Integer)request.getSession().getAttribute("userId");
+//        dianzan.setYonghuId(userId);
+        EntityWrapper<GonggaoPinglunEntity> wrapper=new EntityWrapper<>(pinglun);
+        List<GonggaoPinglunEntity> data = gonggaoPinglunService.selectList(wrapper);
+
+        List<GonggaoPinglunView> res=new ArrayList<>();
+        for (GonggaoPinglunEntity datum : data) {
+            GonggaoPinglunView view = new GonggaoPinglunView();
+            BeanUtils.copyProperties( datum , view );
+
+            YonghuEntity yonghu = yonghuService.selectById(datum.getYonghuId());
+
+            view.setYonghuName(yonghu.getYonghuName());
+            view.setYonghuPhoto(yonghu.getYonghuPhoto());
+
+            res.add(view);
+        }
+
+        return R.ok().put("data", res);
+    }
+
+
+    @RequestMapping("pinglun/add")
+    public R add(@RequestBody GonggaoPinglunEntity pinglun, HttpServletRequest request){
+
+        Integer userId = (Integer)request.getSession().getAttribute("userId");
+        pinglun.setYonghuId(userId);
+
+        gonggaoPinglunService.insert(pinglun);
+
+        return R.ok("操作成功");
     }
 
 }

@@ -208,10 +208,10 @@ public class ForumController {
     */
     @RequestMapping("/update")
     public R update(@RequestBody ForumEntity forum, HttpServletRequest request) throws NoSuchFieldException, ClassNotFoundException, IllegalAccessException, InstantiationException {
-        logger.debug("update方法:,,Controller:{},,forum:{}",this.getClass().getName(),forum.toString());
-        ForumEntity oldForumEntity = forumService.selectById(forum.getId());//查询原先数据
-
-        String role = String.valueOf(request.getSession().getAttribute("role"));
+        logger.info("update方法:,,Controller:{},,forum:{}",this.getClass().getName(),forum.toString());
+//        ForumEntity oldForumEntity = forumService.selectById(forum.getId());//查询原先数据
+//
+//        String role = String.valueOf(request.getSession().getAttribute("role"));
 //        if(false)
 //            return R.error(511,"永远不会进入");
 //        else if("用户".equals(role))
@@ -309,7 +309,7 @@ public class ForumController {
     @IgnoreAuth
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params, HttpServletRequest request){
-        logger.debug("list方法:,,Controller:{},,params:{}",this.getClass().getName(),JSONObject.toJSONString(params));
+        logger.debug("list方法:Controller:{},params:{}",this.getClass().getName(),JSONObject.toJSONString(params));
 
         CommonUtil.checkMap(params);
         PageUtils page = forumService.queryPage(params);
@@ -393,5 +393,28 @@ public class ForumController {
         }
     }
 
+
+    /**
+     * 点赞
+     */
+    @RequestMapping("/dianzan/{id}")
+    private R dianzan(@PathVariable("id") Long id, HttpServletRequest request){
+        logger.debug("dianzan方法:,,Controller:{},,id:{}",this.getClass().getName(),id);
+
+        //是否已经点赞
+        ForumDianzanEntity dianzan = new ForumDianzanEntity();
+        dianzan.setForumId(id);
+        Integer userId = (Integer)request.getSession().getAttribute("userId");
+        dianzan.setYonghuId(userId);
+        EntityWrapper<ForumDianzanEntity> wrapper=new EntityWrapper<>(dianzan);
+        int count=forumDianzanService.selectCount(wrapper);
+        if (count>0){
+            return R.error(511,"已经赞过了");
+        }
+
+        forumDianzanService.insert(dianzan);
+
+        return R.ok("操作成功");
+    }
 }
 

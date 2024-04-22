@@ -81,8 +81,13 @@
         </div>
 
         <div class="btn-container main_backgroundColor" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"10px 0 10px 0","borderColor":"rgba(0,0,0,.3)","borderRadius":"4px","alignItems":"center","borderWidth":"0","borderStyle":"solid","justifyContent":"flex-end","height":"64px"}'>
-            <div class="title" style="color:#666;font-size: 18px;">
-                评论列表
+            <div class="title" style="text-align: left;color:#666;font-size: 18px;width:930px">
+                评论列表 点赞数量：{{detail.count}}
+                <button class="layui-btn layui-btn-lg btn-theme main_backgroundColor"
+                        :style='{"padding":"0 15px","boxShadow":"0 0 8px rgba(0,0,0,0)","margin":"0","borderColor":"rgba(135, 206, 250, 1)","color":"#fff","borderRadius":"4px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid"}'
+                        v-if="!detail.dianzanEd" @click="dianzan" type="button">
+                     👍
+                </button>
             </div>
         </div>
 
@@ -205,6 +210,17 @@
             },
             jump(url) {
                 jump(url)
+            },
+            dianzan(){
+                let _this = this;
+                layui.http.requestJson('forum/dianzan/'+ _this.id, 'post',{}, function (res) {
+                    layer.msg('操作成功', {
+                        time: 1000,
+                        icon: 6
+                    }, function () {
+                        _this.pageList()
+                    });
+                });
             },
             addComment(){
                 let _this = this;

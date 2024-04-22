@@ -344,6 +344,12 @@
                             {{title}}
                         </cite>
                     </a>
+                     <button class="layui-btn layui-btn-lg btn-theme main_backgroundColor"
+                             :style='{"height":"40px","boxShadow":"0 0 8px rgba(0,0,0,0)","margin":"0","borderColor":"rgba(135, 206, 250, 1)","color":"#fff","borderRadius":"4px","borderWidth":"0","width":"auto","fontSize":"12px","borderStyle":"solid"}'
+                             v-if="!detail.study" @click="study" type="button">
+                         报名学习
+                    </button>
+                    <span v-else>已报名</span>
                 </span>
         </div>
         <div class="container">
@@ -477,15 +483,6 @@
                 detailTable: 'jishu',
             },
             methods: {
-                //分享
-                share(){
-                    let element = createElement("http://localhost:8080/lhcnyxxglxt/front/index.html?url="+"./pages/jishu/detail.html?id="+this.id);
-                    element.select();
-                    element.setSelectionRange(0, element.value.length);
-                    document.execCommand('copy');
-                    element.remove();
-                    layui.layer.msg('复制分享页面成功,快去分享吧!', {time: 2000,icon: 6});
-                },
 
                 jump(url) {
                     jump(url)
@@ -494,25 +491,20 @@
                     return isFrontAuth(tablename, button)
                 },
                 //预约
-                jishuYuyue(){
+                study(){
                     let _this = this;
-                    var mymessage = confirm("确定要预约吗？");if(!mymessage){return false;}
+                    var mymessage = confirm("确定要报名学习吗？");if(!mymessage){return false;}
                     // localStorage.setItem('jishuId', _this.detail.id);
                     // _this.jump("../jishuOrder/add.html");
 
-                    let data={
-                        jishuId:_this.detail.id,
-                        yonghuId:localStorage.getItem("userid"),
-                        jishuOrderYesnoTypes:1,
-                    }
                     // 提交数据
-                    layui.http.requestJson('jishuOrder/add', 'post', data, function (res) {
+                    layui.http.requestJson('jishu/study/'+_this.detail.id, 'post', {}, function (res) {
                         if(res.code == 0) {
-                            layui.layer.msg('预约成功', {
+                            layui.layer.msg('报名成功', {
                                 time: 2000,
                                 icon: 6
                             }, function () {
-                                _this.jump("../jishuOrder/list.html");
+
                             });
                         }else{
                             layui.layer.msg(res.msg, {
@@ -537,7 +529,7 @@
             var laypage = layui.laypage;
             vue.baseUrl = http.baseurl
 
-            localStorage.setItem("goUtl","./pages/jishu/detail.html?id="+ http.getParam('id'))
+
 
             var limit = 10;
 

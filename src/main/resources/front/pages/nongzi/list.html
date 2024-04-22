@@ -215,8 +215,7 @@
                 </ul>
                 <form>
          
-                <input type="text" v-model="searchForm.nongziName" placeholder="农资名称" autocomplete="off"
-                       class="search-input">             
+                <input type="text" v-model="searchForm.nongziName" placeholder="农资名称" autocomplete="off" class="search-input">
                                                 <div style="display: flex;justify-content: space-evenly;align-items: center;">
                         <div id="btn-search" class="button-submit"><i class="layui-icon layui-icon-search"></i>搜索</div>
                         <div v-if="isAuth('nongzi','新增')"  @click="jump('../nongzi/add.html')" class="button-submit"><i class="layui-icon">&#xe654;</i>添加</div>

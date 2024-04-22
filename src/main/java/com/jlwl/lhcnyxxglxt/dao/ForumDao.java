@@ -20,4 +20,6 @@ public interface ForumDao extends BaseMapper<ForumEntity> {
 
    List<ForumView> selectListView(Pagination page,@Param("params")Map<String,Object> params);
 
+   Long countListView(@Param("params")Map<String,Object> params);
+
 }

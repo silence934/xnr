@@ -89,15 +89,52 @@
             </div>
             <div class="content" style="word-break: break-all;" v-html="myFilters(detail.gonggaoContent)">
             </div>
-            <div class="btn-container main_backgroundColor"  :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"10px 0 10px 0","borderColor":"rgba(0,0,0,.3)","borderRadius":"4px","alignItems":"center","borderWidth":"0","borderStyle":"solid","justifyContent":"flex-end","height":"64px"}'>
-                <div class="title" style="font-size: 18px;color:#999;">
-                    本篇文章：{{detail.gonggaoName}}
+<!--            <div class="btn-container main_backgroundColor"  :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"10px 0 10px 0","borderColor":"rgba(0,0,0,.3)","borderRadius":"4px","alignItems":"center","borderWidth":"0","borderStyle":"solid","justifyContent":"flex-end","height":"64px"}'>-->
+<!--&lt;!&ndash;                <div class="title" style="font-size: 18px;color:#999;">&ndash;&gt;-->
+<!--&lt;!&ndash;                    本篇文章：{{detail.gonggaoName}}&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                <button class="main_backgroundColor" :style='{"padding":"0 15px","boxShadow":"0 0 8px rgba(0,0,0,0)","margin":"0 0 0 10px","borderColor":"rgba(135, 206, 250, 1)","color":"#fff","borderRadius":"4px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"40px"}' onclick="back()" type="button" class="layui-btn layui-btn-lg btn-theme">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <i v-if="true" class="layui-icon">&#xe65c;</i> 返回列表&ndash;&gt;-->
+<!--&lt;!&ndash;                </button>&ndash;&gt;-->
+<!--            </div>-->
+
+            <div style="width: 980px;margin: 0 auto"  v-if="pinglun&&pinglun.length" >
+                <div  v-for="(item,index) in pinglun" v-bind:key="index" :style='{"padding":"20px 0","boxShadow":"0 0 0px rgba(255,0,0,0)","margin":"0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0 0 1px 0","borderStyle":"solid"}'  class="message-item">
+                    <div style="display:flex;align-items: center;justify-content: space-between;">
+                        <img  :src="baseUrl+item.yonghuPhoto" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.3)","margin":"0 10px 0 0","borderColor":"rgba(0,0,0,.3)","borderRadius":"50%","borderWidth":"0","width":"40px","borderStyle":"solid","height":"40px"}' class="avator">
+                        <span style="display: inline-block;" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.3)","margin":"0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","color":"rgba(6, 82, 121, 1)","borderRadius":"4px","borderWidth":"0","width":"auto","lineHeight":"28px","fontSize":"14px","borderStyle":"solid"}' class="username">
+                            用户：{{item.yonghuName}}
+                        </span>
+                        <div class="content" class="content" style="margin: 0;flex: 1;">
+                        <span style="display: inline-block;" class="message main_color" :style='{"padding":"8px","boxShadow":"0 0 0px rgba(255,0,0,.3)","margin":"8px 0 0 50px","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 0, 0, 0)","borderRadius":"4px","borderWidth":"0","fontSize":"14px","borderStyle":"solid"}'>
+                            {{item.content}}
+                        </span>
+                        </div>
+                    </div>
                 </div>
-                <button class="main_backgroundColor" :style='{"padding":"0 15px","boxShadow":"0 0 8px rgba(0,0,0,0)","margin":"0 0 0 10px","borderColor":"rgba(135, 206, 250, 1)","color":"#fff","borderRadius":"4px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"40px"}' onclick="back()" type="button" class="layui-btn layui-btn-lg btn-theme">
-                    <i v-if="true" class="layui-icon">&#xe65c;</i> 返回列表
-                </button>
             </div>
-        </div>    </div>
+
+
+            <div style="width: 980px;margin: 0 auto;padding-top: 20px">
+                <label  :style='{"width":"110px","borderColor": "rgba(255, 255, 255, 0)","padding":"0 12px 0 0","backgroundColor":"rgba(255, 255, 255, 0)","fontSize":"15px","color":"#333","textAlign":"left"}' class="layui-form-label">
+                    评论内容：
+                </label>
+                <div class="layui-input-block">
+                    <textarea class="main_borderColor" style="width: 90%;height: 100px"  v-model="ruleForm.forumContent" lay-verify="required"  name="forumContent" id="forumContent" autocomplete="off"></textarea>
+                </div>
+                <div class="layui-form-item main_borderColor" :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
+                    <div class="layui-input-block" style="text-align: right;">
+                        <button :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"0 10px","borderColor":"#ccc","backgroundColor":"var(--publicMainColor)","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"25%","fontSize":"14px","borderStyle":"solid","height":"44px"}' class="layui-btn btn-submit"
+                                @click="addComment">添加评论</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 
 
     <script src="../../layui/layui.js"></script>
@@ -124,6 +161,11 @@
         var vue = new Vue({
             el: '#app',
             data: {
+                ruleForm:{
+                    forumStateTypes: 2,
+                    forumContent: '',
+                    forumPhoto: '',
+                },
                 userId: localStorage.getItem("userid"),//当前登录人的id
                 sessionTable: localStorage.getItem("userTable"),//登录账户所在表名
                 role: localStorage.getItem("role"),//权限
@@ -134,6 +176,7 @@
                 detail: {
                     id: 0
                 },
+                pinglun:[],
                 // 商品标题
                 title: '',
                 totalScore: 0,//评分
@@ -145,6 +188,25 @@
                 detailTable: 'gonggao',
             },
             methods: {
+                addComment(){
+                    let _this = this;
+                    _this.ruleForm.gonggaoId = this.detail.id
+                    if(_this.ruleForm.forumContent === "" || _this.ruleForm.forumContent == null){
+                        layer.msg('回复内容不能为空', {
+                            time: 1000,
+                            icon: 6
+                        });
+                    }
+                    _this.ruleForm.content=_this.ruleForm.forumContent
+                    layui.http.requestJson('gonggao/pinglun/add', 'post',_this.ruleForm, function (res) {
+                        layer.msg('回复成功', {
+                            time: 1000,
+                            icon: 6
+                        }, function () {
+                            //_this.pageList()
+                        });
+                    });
+                },
                 //分享
                 share(){
                     let element = createElement("http://localhost:8080/lhcnyxxglxt/front/index.html?url="+"./pages/gonggao/detail.html?id="+this.id);
@@ -223,8 +285,15 @@
             http.request('gonggao/detail/' + id, 'get', {}, function(res) {
                 vue.detail = res.data;
                 vue.title = vue.detail.gonggaoName;
-                    vue.detail.gonggaoContent = vue.detail.gonggaoContent.replaceAll("src=\"upload/","src=\""+vue.baseUrl+"upload/").replaceAll(/<img/g,'<img style="width: 100%;"');
+                vue.detail.gonggaoContent = vue.detail.gonggaoContent.replaceAll("src=\"upload/","src=\""+vue.baseUrl+"upload/").replaceAll(/<img/g,'<img style="width: 100%;"');
             });
+
+            // 评论信息
+            http.request('gonggao/pinglin/list/' + id, 'get', {}, function(res) {
+                vue.pinglun = res.data;
+            });
+
+
         });
     </script>
 </body>

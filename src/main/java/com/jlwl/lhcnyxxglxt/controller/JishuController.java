@@ -43,7 +43,8 @@ public class JishuController {
 
     @Autowired
     private JishuService jishuService;
-
+    @Autowired
+    private JishuStudyService jishuStudyService;
 
     @Autowired
     private TokenService tokenService;
@@ -318,19 +319,26 @@ public class JishuController {
     public R detail(@PathVariable("id") Long id, HttpServletRequest request){
         logger.debug("detail方法:,,Controller:{},,id:{}",this.getClass().getName(),id);
         JishuEntity jishu = jishuService.selectById(id);
-            if(jishu !=null){
+        if(jishu !=null){
+            //entity转view
+            JishuView view = new JishuView();
+            BeanUtils.copyProperties( jishu , view );//把实体数据重构到view中
 
+            //查询收否已报名学习
+            JishuStudyEntity study = new JishuStudyEntity();
+            study.setJishuId(id);
+            Integer userId = (Integer)request.getSession().getAttribute("userId");
+            study.setYonghuId(userId);
+            EntityWrapper<JishuStudyEntity> wrapper=new EntityWrapper<>(study);
+            int count=jishuStudyService.selectCount(wrapper);
+            view.setStudy(count>0);
 
-                //entity转view
-                JishuView view = new JishuView();
-                BeanUtils.copyProperties( jishu , view );//把实体数据重构到view中
-
-                //修改对应字典表字段
-                dictionaryService.dictionaryConvert(view, request);
-                return R.ok().put("data", view);
-            }else {
-                return R.error(511,"查不到数据");
-            }
+            //修改对应字典表字段
+            dictionaryService.dictionaryConvert(view, request);
+            return R.ok().put("data", view);
+        }else {
+            return R.error(511,"查不到数据");
+        }
     }
 
 
@@ -366,6 +374,30 @@ public class JishuController {
         }else {
             return R.error(511,"表中有相同数据");
         }
+    }
+
+
+
+    /**
+     * 报名学习
+     */
+    @RequestMapping("/study/{id}")
+    private R study(@PathVariable("id") Long id, HttpServletRequest request){
+        logger.debug("study:,,Controller:{},,id:{}",this.getClass().getName(),id);
+
+        JishuStudyEntity study = new JishuStudyEntity();
+        study.setJishuId(id);
+        Integer userId = (Integer)request.getSession().getAttribute("userId");
+        study.setYonghuId(userId);
+        EntityWrapper<JishuStudyEntity> wrapper=new EntityWrapper<>(study);
+        int count=jishuStudyService.selectCount(wrapper);
+        if (count>0){
+            return R.error(511,"已经报名学习了");
+        }
+
+        jishuStudyService.insert(study);
+
+        return R.ok("操作成功");
     }
 
 }

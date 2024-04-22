@@ -24,6 +24,7 @@ public class ForumServiceImpl extends ServiceImpl<ForumDao, ForumEntity> impleme
     public PageUtils queryPage(Map<String,Object> params) {
         Page<ForumView> page =new Query<ForumView>(params).getPage();
         page.setRecords(baseMapper.selectListView(page,params));
+        page.setTotal(baseMapper.countListView(params));
         return new PageUtils(page);
     }
 
