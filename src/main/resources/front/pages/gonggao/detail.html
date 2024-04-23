@@ -203,7 +203,8 @@
                             time: 1000,
                             icon: 6
                         }, function () {
-                            //_this.pageList()
+                            _this.pinglunList()
+                            _this.ruleForm.forumContent=''
                         });
                     });
                 },
@@ -222,6 +223,14 @@
                 },
                 isAuth(tablename, button) {
                     return isFrontAuth(tablename, button)
+                },
+                pinglunList(){
+                    let uri='gonggao/pinglin/list/' + this.id
+                    console.log("请求评论信息",uri)
+                    // 评论信息
+                    layui.http.requestJson(uri, 'post', {}, function(res) {
+                        this.pinglun = res.data;
+                    });
                 },
                 //预约
                 gonggaoYuyue(){
@@ -281,6 +290,7 @@
             // 数据ID
             var id = http.getParam('id');
             vue.detail.id = id;
+            vue.id=id
             // 详情信息
             http.request('gonggao/detail/' + id, 'get', {}, function(res) {
                 vue.detail = res.data;
