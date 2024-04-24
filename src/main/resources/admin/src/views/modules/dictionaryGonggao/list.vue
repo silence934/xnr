@@ -69,7 +69,7 @@
                   <el-table-column :sortable="contents.tableSortable" :align="contents.tableAlign" prop="nongziPhoto"
                                    header-align="center"
                                    width="200"
-                                   label="农资照片">
+                                   label="农资类型照片">
                     <template slot-scope="scope">
                       <div v-if="scope.row.photo">
                         <img :src="$base.url+scope.row.photo" width="100" height="100">

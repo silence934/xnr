@@ -12,6 +12,7 @@
         ,a.super_id as superId
         ,a.beizhu as beizhu
         ,a.create_time as createTime
+        ,a.photo as photo
     </sql>
     <select id="selectListView" parameterType="map" resultType="com.jlwl.xnr.entity.view.DictionaryView" >
         SELECT
