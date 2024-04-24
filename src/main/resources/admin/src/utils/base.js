@@ -9,7 +9,7 @@ const base = {
     },
     getProjectName(){
         return {
-            projectName: "莲花村农业信息管理系统"
+            projectName: "新农人交流论坛"
         } 
     }
 }

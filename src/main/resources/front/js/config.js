@@ -1,4 +1,4 @@
-var projectName = '莲花村农业信息管理系统';
+var projectName = '新农人交流论坛';
 /**
  * 轮播图配置
  */
@@ -49,7 +49,6 @@ var centerMenu = [
 
 
 var indexNav = [
-
     {
         name: '农产品',
         url: './pages/chanpin/list.html'
@@ -59,7 +58,7 @@ var indexNav = [
         url: './pages/forum/list.html'
     },
     {
-        name: '公告',
+        name: '农咨',
         url: './pages/gonggao/list.html'
     },
     {

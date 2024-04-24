@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/lhcnyxxglxt?serverTimezone=GMT%2b8
+    url: jdbc:mysql://localhost:3306/xnr?serverTimezone=GMT%2b8
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
@@ -26,8 +26,8 @@ mybatis-plus:
 server:
   port: 8080
   servlet:
-    context-path: /lhcnyxxglxt
+    context-path: /xnr
 
 logging:
   level:
-    com.jlwl.lhcnyxxglxt.controller: DEBUG
+    com.jlwl.xnr.controller: DEBUG

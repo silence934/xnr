@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jlwl.lhcnyxxglxt.dao.ChanpinCommentbackDao">
+<mapper namespace="com.jlwl.xnr.dao.ChanpinCommentbackDao">
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
@@ -13,7 +13,7 @@
         ,a.update_time as updateTime
         ,a.create_time as createTime
     </sql>
-    <select id="selectListView" parameterType="map" resultType="com.jlwl.lhcnyxxglxt.entity.view.ChanpinCommentbackView" >
+    <select id="selectListView" parameterType="map" resultType="com.jlwl.xnr.entity.view.ChanpinCommentbackView" >
         SELECT
         <include refid="Base_Column_List" />
         <!-- 级联表的字段 -->
