@@ -230,11 +230,11 @@
                         <a href="../home/home.html">首页</a>
                         <span>/</span>
                     </li>
-                    <li>公告</li>
+                    <li>农资</li>
                 </ul>
                 <form>
          
-                <input type="text" v-model="searchForm.gonggaoName" placeholder="公告名称" autocomplete="off"
+                <input type="text" v-model="searchForm.gonggaoName" placeholder="农资名称" autocomplete="off"
                        class="search-input">         
                                 <div style="display: flex;justify-content: space-evenly;align-items: center;">
                         <div id="btn-search" class="button-submit"><i class="layui-icon layui-icon-search"></i>搜索</div>
@@ -242,13 +242,16 @@
                     </div>
                 </form>
                 <div class="tags tags1">
-                    <h3>公告类型</h3>
+                    <h3>农资类型</h3>
                     <ul>
                         <li class="thisTableType-search">
                             <a :class='searchForm.gonggaoTypes=="" || searchForm.gonggaoTypes==null?"thisTableType-search-hover":""'>全部</a>
                         </li>
                         <li v-for="(item,index) in gonggaoTypesList" :key="item.codeIndex" :index="item.codeIndex" class="thisTableType-search" >
-                            <a :class='searchForm.gonggaoTypes==item.codeIndex?"thisTableType-search-hover":""'>{{item.indexName}}</a>
+                            <a :class='searchForm.gonggaoTypes==item.codeIndex?"thisTableType-search-hover":""'>
+                                <img style="width: 30px;height: 15px" :src="base_url+item.photo">
+                                {{item.indexName}}
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -283,6 +286,7 @@
     var vue = new Vue({
         el: '#app',
         data: {
+            base_url:'http://localhost:8080/xnr/',
             userId: localStorage.getItem("userid"),//当前登录人的id
             sessionTable: localStorage.getItem("userTable"),//登录账户所在表名
             role: localStorage.getItem("role"),//权限

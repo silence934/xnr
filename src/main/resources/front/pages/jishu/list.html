@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="utf-8">
-    <title>农业技术</title>
+    <title>讲座和展会</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta name="renderer" content="webkit">
@@ -235,11 +235,11 @@
                         <a href="../home/home.html">首页</a>
                         <span>/</span>
                     </li>
-                    <li>农业技术</li>
+                    <li>讲座和展会类型</li>
                 </ul>
                 <form>
          
-                <input type="text" v-model="searchForm.jishuName" placeholder="农作物名称" autocomplete="off"
+                <input type="text" v-model="searchForm.jishuName" placeholder="讲座和展会名称" autocomplete="off"
                        class="search-input">             
                                                                 <div style="display: flex;justify-content: space-evenly;align-items: center;">
                         <div id="btn-search" class="button-submit"><i class="layui-icon layui-icon-search"></i>搜索</div>
@@ -247,7 +247,7 @@
                     </div>
                 </form>
                 <div class="tags tags1">
-                    <h3>农作物类型</h3>
+                    <h3>讲座和展会类型</h3>
                     <ul>
                         <li class="thisTableType-search">
                             <a :class='searchForm.jishuTypes=="" || searchForm.jishuTypes==null?"thisTableType-search-hover":""'>全部</a>
@@ -427,16 +427,16 @@
 
 
 
-        //农作物类型的动态搜素
+        //讲座和展会类型的动态搜素
         $(document).on("click", ".thisTableType-search", function (e) {
             vue.searchForm.jishuTypes = $(this).attr('index');
             pageList();
         });
 
 
-            //当前表的 农作物类型 字段 字典表查询
+            //当前表的 讲座和展会类型 字段 字典表查询
             jishuTypesSelect();
-                                                   //当前表的 农作物类型 字段 字典表查询方法
+                                                   //当前表的 讲座和展会类型 字段 字典表查询方法
            function jishuTypesSelect() {
                http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=jishu_types", 'get', {}, function (res) {
                    if(res.code == 0){
