@@ -1,10 +1,10 @@
 const base = {
     get() {
         return {
-            url : "http://localhost:8080/lhcnyxxglxt/",
-            name: "lhcnyxxglxt",
+            url : "http://localhost:8080/xnr/",
+            name: "xnr",
             // 退出到首页链接
-            indexUrl: 'http://localhost:8080/lhcnyxxglxt/front/index.html'
+            indexUrl: 'http://localhost:8080/xnr/front/index.html'
         };
     },
     getProjectName(){

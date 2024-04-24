@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.enums.FieldFill;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jlwl.xnr.utils.DateUtil;
+import lombok.Data;
 import org.springframework.beans.BeanUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,6 +22,7 @@ import java.util.Date;
  * @author 
  * @email
  */
+@Data
 @TableName("dictionary")
 public class DictionaryEntity<T> implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -97,6 +99,11 @@ public class DictionaryEntity<T> implements Serializable {
     @TableField(value = "beizhu")
 
     private String beizhu;
+
+
+    @ColumnInfo(comment="图片",type="varchar(200)")
+    @TableField(value = "photo")
+    private String photo;
 
 
     /**

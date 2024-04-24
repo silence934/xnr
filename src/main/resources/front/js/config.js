@@ -62,7 +62,7 @@ var indexNav = [
         url: './pages/gonggao/list.html'
     },
     {
-        name: '农业技术',
+        name: '讲座和展会',
         url: './pages/jishu/list.html'
     },
 

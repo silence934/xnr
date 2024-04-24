@@ -51,33 +51,33 @@ const menu = {
                 ],
                 "menu":"用户管理"
             }
-            ,{
-                "child":[
-                    {
-                        "buttons":[
-                            "查看",
-                            "新增",
-                            "修改",
-                            "删除"
-                        ],
-                        "menu":"农资管理",
-                        "menuJump":"列表",
-                        "tableName":"nongzi"
-                    }
-                    ,
-                    {
-                        "buttons":[
-                            "订单",
-                            "查看",
-                            "删除"
-                        ],
-                        "menu":"农资订单管理",
-                        "menuJump":"列表",
-                        "tableName":"nongziOrder"
-                    }
-                ],
-                "menu":"农资管理"
-            }
+            // ,{
+            //     "child":[
+            //         {
+            //             "buttons":[
+            //                 "查看",
+            //                 "新增",
+            //                 "修改",
+            //                 "删除"
+            //             ],
+            //             "menu":"农资管理",
+            //             "menuJump":"列表",
+            //             "tableName":"nongzi"
+            //         }
+            //         ,
+            //         {
+            //             "buttons":[
+            //                 "订单",
+            //                 "查看",
+            //                 "删除"
+            //             ],
+            //             "menu":"农资订单管理",
+            //             "menuJump":"列表",
+            //             "tableName":"nongziOrder"
+            //         }
+            //     ],
+            //     "menu":"农资管理"
+            // }
             ,{
                 "child":[
                     {
@@ -135,12 +135,12 @@ const menu = {
                             "修改",
                             "删除"
                         ],
-                        "menu":"农业技术管理",
+                        "menu":"讲座和展会管理",
                         "menuJump":"列表",
                         "tableName":"jishu"
                     }
                 ],
-                "menu":"农业技术管理"
+                "menu":"讲座和展会管理"
             }
             ,{
                 "child":[
@@ -167,12 +167,12 @@ const menu = {
                             "修改",
                             "删除"
                         ],
-                        "menu":"公告管理",
+                        "menu":"农资管理",
                         "menuJump":"列表",
                         "tableName":"gonggao"
                     }
                 ],
-                "menu":"公告管理"
+                "menu":"农资管理"
             }
             ,{
                 "child":[
@@ -213,17 +213,17 @@ const menu = {
                         "tableName":"dictionaryJishu"
                     }
                     ,
-                    {
-                        "buttons":[
-                            "查看",
-                            "新增",
-                            "删除",
-                            "修改"
-                        ],
-                        "menu":"农资类型管理",
-                        "menuJump":"列表",
-                        "tableName":"dictionaryNongzi"
-                    }
+                    // {
+                    //     "buttons":[
+                    //         "查看",
+                    //         "新增",
+                    //         "删除",
+                    //         "修改"
+                    //     ],
+                    //     "menu":"农资类型管理",
+                    //     "menuJump":"列表",
+                    //     "tableName":"dictionaryNongzi"
+                    // }
 
                 ],
                 "menu":"基础数据管理"
