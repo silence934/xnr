@@ -1,6 +1,6 @@
 <template>
     <el-main style="padding: 10px 20px;
-						background-image: url(/lhcnyxxglxt/img/back-list-img-bg.jpg);
+						background-image: url(/xnr/img/back-list-img-bg.jpg);
 						background-size:100% 100%;
 							boxShadow: 0 0 6px rgba(0,0,0,0);
                 height:calc(100% -  ${template2.back.menulist.menulistHeight});">

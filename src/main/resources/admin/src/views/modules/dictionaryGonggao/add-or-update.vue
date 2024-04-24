@@ -32,6 +32,18 @@
                         </el-form-item>
                     </div>
                 </el-col>
+              <el-col :span="12">
+                <el-form-item  label='图片' prop="yonghuPhoto">
+                  <file-upload
+                      tip="点击上传照片"
+                      action="file/upload"
+                      :limit="3"
+                      :multiple="true"
+                      :fileUrls="ruleForm.photo?$base.url+ruleForm.photo:''"
+                      @change="yonghuPhotoUploadChange"
+                  ></file-upload>
+                </el-form-item>
+              </el-col>
                 <!--<el-col :span="12">
                     <el-form-item class="input" v-if="type!='info'"  label="备注" prop="beizhu">
                         <el-input v-model="ruleForm.beizhu"
@@ -77,6 +89,7 @@
                     indexName: '',
                     superId : '',
                     beizhu : '',
+                    photo:'',
                 },
                 rules: {
                     /*beizhu: [
@@ -98,6 +111,9 @@
             this.addEditUploadStyleChange()
         },
         methods: {
+            yonghuPhotoUploadChange(fileUrls) {
+              this.ruleForm.photo = fileUrls;
+            },
             // 初始化
             init(id,type) {
                 if (id) {

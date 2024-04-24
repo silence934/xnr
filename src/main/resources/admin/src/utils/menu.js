@@ -196,7 +196,7 @@ const menu = {
                             "删除",
                             "修改"
                         ],
-                        "menu":"公告类型管理",
+                        "menu":"农资类型管理",
                         "menuJump":"列表",
                         "tableName":"dictionaryGonggao"
                     }

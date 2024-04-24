@@ -124,9 +124,7 @@ public class DictionaryController {
     public R save(@RequestBody DictionaryEntity dictionary, HttpServletRequest request){
         logger.debug("save方法:,,Controller:{},,dictionary:{}",this.getClass().getName(),dictionary.toString());
 
-        String role = String.valueOf(request.getSession().getAttribute("role"));
-        if(false)
-            return R.error(511,"永远不会进入");
+
 
         Wrapper<DictionaryEntity> queryWrapper = new EntityWrapper<DictionaryEntity>()
             .eq("dic_code", dictionary.getDicCode())
