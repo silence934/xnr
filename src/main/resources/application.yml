@@ -20,7 +20,7 @@ spring:
     static-locations: file:src/main/resources/
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.jlwl.lhcnyxxglxt.entity
+  type-aliases-package: com.jlwl.xnr.entity
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 server:

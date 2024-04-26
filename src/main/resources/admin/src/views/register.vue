@@ -330,7 +330,7 @@
 		background-position: center center;
 		background-size: cover;
 		background-repeat: no-repeat;
-		background-image: url(/lhcnyxxglxt/img/back-img-bg.jpg);
+		background-image: url(/xnr/img/back-img-bg.jpg);
 
 		.login-form {
 			right: 50%;

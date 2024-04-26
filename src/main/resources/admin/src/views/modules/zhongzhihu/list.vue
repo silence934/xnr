@@ -58,7 +58,7 @@
                         <a style="text-decoration:none" class="el-button el-button--success"
                            v-if="isAuth('zhongzhihu','导入导出')"
                            icon="el-icon-download"
-                           href="http://localhost:8080/lhcnyxxglxt/upload/zhongzhihuMuBan.xls"
+                           href="http://localhost:8080/xnr/upload/zhongzhihuMuBan.xls"
                         >批量导入种植户数据模板</a>
                         &nbsp;
                         <el-upload

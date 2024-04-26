@@ -61,7 +61,7 @@
                         <a style="text-decoration:none" class="el-button el-button--success"
                            v-if="isAuth('chanpinCollection','导入导出')"
                            icon="el-icon-download"
-                           href="http://localhost:8080/lhcnyxxglxt/upload/chanpinCollectionMuBan.xls"
+                           href="http://localhost:8080/xnr/upload/chanpinCollectionMuBan.xls"
                         >批量导入农产品收藏数据模板</a>
                         &nbsp;
                         <el-upload

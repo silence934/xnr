@@ -58,7 +58,7 @@
                         <a style="text-decoration:none" class="el-button el-button--success"
                            v-if="isAuth('jishu','导入导出')"
                            icon="el-icon-download"
-                           href="http://localhost:8080/lhcnyxxglxt/upload/jishuMuBan.xls"
+                           href="http://localhost:8080/xnr/upload/jishuMuBan.xls"
                         >批量导入农业技术数据模板</a>
                         &nbsp;
                         <el-upload

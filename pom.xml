@@ -12,8 +12,8 @@
     <groupId>com.jlwl</groupId>
     <artifactId>xnr</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lhcnyxxglxt_v2</name>
-    <description>lhcnyxxglxt_v2</description>
+    <name>xnr</name>
+    <description>新农人</description>
 
     <properties>
         <java.version>8</java.version>

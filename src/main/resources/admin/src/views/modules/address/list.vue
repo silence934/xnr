@@ -43,7 +43,7 @@
                         <a style="text-decoration:none" class="el-button el-button--success"
                            v-if="isAuth('address','导入导出')"
                            icon="el-icon-download"
-                           href="http://localhost:8080/lhcnyxxglxt/upload/addressMuBan.xls"
+                           href="http://localhost:8080/xnr/upload/addressMuBan.xls"
                         >批量导入收货地址数据模板</a>
                         &nbsp;
                         <el-upload

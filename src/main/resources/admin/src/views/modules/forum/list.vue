@@ -120,7 +120,7 @@
                         <a style="text-decoration:none" class="el-button el-button--success"
                            v-if="isAuth('forum','导入导出')"
                            icon="el-icon-download"
-                           href="http://localhost:8080/lhcnyxxglxt/upload/forumMuBan.xls"
+                           href="http://localhost:8080/xnr/upload/forumMuBan.xls"
                         >批量导入论坛数据模板</a>
                         &nbsp;
                         <el-upload

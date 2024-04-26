@@ -62,7 +62,7 @@
                         <a style="text-decoration:none" class="el-button el-button--success"
                            v-if="isAuth('chanpin','导入导出')"
                            icon="el-icon-download"
-                           href="http://localhost:8080/lhcnyxxglxt/upload/chanpinMuBan.xls"
+                           href="http://localhost:8080/xnr/upload/chanpinMuBan.xls"
                         >批量导入农产品数据模板</a>
                         &nbsp;
                         <el-upload

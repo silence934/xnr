@@ -58,7 +58,7 @@
                         <a style="text-decoration:none" class="el-button el-button--success"
                            v-if="isAuth('gonggao','导入导出')"
                            icon="el-icon-download"
-                           href="http://localhost:8080/lhcnyxxglxt/upload/gonggaoMuBan.xls"
+                           href="http://localhost:8080/xnr/upload/gonggaoMuBan.xls"
                         >批量导入农资数据模板</a>
                         &nbsp;
                         <el-upload

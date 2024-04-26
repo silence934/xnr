@@ -69,7 +69,7 @@ var indexNav = [
 ]
 
 // 已废弃,不用了
-var adminurl =  "http://localhost:8080/lhcnyxxglxt/admin/dist/index.html#/login";
+var adminurl =  "http://localhost:8080/xnr/admin/dist/index.html#/login";
 
 
 

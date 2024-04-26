@@ -231,7 +231,7 @@
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
-        background-image: url(/lhcnyxxglxt/img/back-img-bg.jpg);
+        background-image: url(/xnr/img/back-img-bg.jpg);
 
 
     .loginInBt {
