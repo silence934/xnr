@@ -207,7 +207,7 @@
                      :key="index" class="list-item3B list-item4">
                                   <div @click="jump('../jishu/detail.html?id='+item.id)" class="animation-box" style="display:flex;flex-direction: column;"
                          :style='{"padding":"0","boxShadow":"0 0 6px rgba(0,0,0, .3)","margin":"30px","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"4px","borderWidth":"0","borderStyle":"solid"}'>
-                        <img :style='{"boxShadow":"0px 0px 0px 12px var(--publicMainColor)","borderColor":"rgba(0,0,0,.3)","borderRadius":"50%","borderWidth":"0","width":"190px","borderStyle":"solid","height":"190px"}'
+                        <img :style='{"boxShadow":"0px 0px 0px 0px var(--publicMainColor)","borderColor":"rgba(0,0,0,.3)","borderRadius":"0%","borderWidth":"0","width":"190px","borderStyle":"solid","height":"190px"}'
                              :src="item.jishuPhoto?baseUrl+item.jishuPhoto.split(',')[0]:''">
                         <div class="info">
                             <div v-if="true"

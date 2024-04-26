@@ -204,7 +204,7 @@
                                         <div style="display:flex;flex-direction: column;">
                 <div @click="jump('../gonggao/detail.html?id='+item.id);" v-for="(item,index) in dataList"
                      :key="index" style="display:flex;flex-direction: column;align-items: flex-start" class="animation-box"
-                     :style='{"padding":"32px 24px","boxShadow":"0 0 6px var(--publicSubColor)","margin":"0 2% 10px 2%","borderColor":"var(--publicMainColor)","backgroundColor":"#fff","borderRadius":"30px","borderWidth":"20px 0","borderStyle":"solid","height":"auto"}'>
+                     :style='{"borderRadius":"0px","padding":"32px 24px","boxShadow":"0 0 6px var(--publicSubColor)","margin":"0 2% 10px 2%","borderColor":"var(--publicMainColor)","backgroundColor":"#fff","borderRadius":"0px","borderWidth":"20px 0","borderStyle":"solid","height":"auto"}'>
                     <div>
                         <div :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,0)","margin":"0","borderColor":"rgba(0,0,0,0)","backgroundColor":"rgba(0,0,0,0)","color":"#333","borderRadius":"0","borderWidth":"0","width":"auto","lineHeight":"24px","fontSize":"18px","borderStyle":"solid"}'>
                             {{item.gonggaoName}}
@@ -216,7 +216,7 @@
                     <div :style='{"padding":"0","boxShadow":"0 0 6px rgba(0,0,0,0)","margin":"10px 0","borderColor":"rgba(0,0,0,0)","backgroundColor":"rgba(0,0,0,0)","color":"#666","borderRadius":"0","borderWidth":"0","width":"100%","lineHeight":"28px","fontSize":"14px","borderStyle":"solid"}'
                          style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3; -webkit-box-orient: vertical;" v-html="myFilters(item.gonggaoContent)">
                     </div>
-                    <div :style='{"padding":"0 12px","boxShadow":"0 0 4px #FFCC00","margin":"0","borderColor":"rgba(0,0,0,0)","backgroundColor":"var(--publicMainColor)","color":"#fff","borderRadius":"4px","borderWidth":"0","lineHeight":"24px","fontSize":"12px","borderStyle":"solid"}'>
+                    <div :style='{"padding":"0 12px","boxShadow":"0 0 4px #FFCC00","margin":"0","borderColor":"rgba(0,0,0,0)","backgroundColor":"var(--publicMainColor)","color":"#fff","borderRadius":"0px","borderWidth":"0","lineHeight":"24px","fontSize":"12px","borderStyle":"solid"}'>
                         {{item.gonggaoValue}}
                     </div>
                 </div>
@@ -237,7 +237,7 @@
                 <input type="text" v-model="searchForm.gonggaoName" placeholder="农资名称" autocomplete="off"
                        class="search-input">         
                                 <div style="display: flex;justify-content: space-evenly;align-items: center;">
-                        <div id="btn-search" class="button-submit"><i class="layui-icon layui-icon-search"></i>搜索</div>
+                        <div id="btn-search" style="width: 350px" class="button-submit"><i class="layui-icon layui-icon-search"></i>搜索</div>
                         <div v-if="isAuth('gonggao','新增')"  @click="jump('../gonggao/add.html')" class="button-submit"><i class="layui-icon">&#xe654;</i>添加</div>
                     </div>
                 </form>

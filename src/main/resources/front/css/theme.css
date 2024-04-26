@@ -1,9 +1,9 @@
 /*定义全局css*/
 body {
 	/* 1 全局公共主颜色 */
-	--publicMainColor: #8989c3;
+	--publicMainColor: #C8E8C8;
 	/* 1 全局公共副颜色 */
-	--publicSubColor:  #9ad4ed;
+	--publicSubColor:  #C8F0C8;
 }
 .bodyClass{
 }

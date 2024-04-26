@@ -207,7 +207,7 @@
                      :key="index" class="list-item3B list-item4">
                                   <div @click="jump('../chanpin/detail.html?id='+item.id)" class="animation-box" style="display:flex;flex-direction: column;"
                          :style='{"padding":"0","boxShadow":"0 0 6px rgba(0,0,0, .3)","margin":"30px","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"4px","borderWidth":"0","borderStyle":"solid"}'>
-                        <img :style='{"boxShadow":"0px 0px 0px 12px var(--publicMainColor)","borderColor":"rgba(0,0,0,.3)","borderRadius":"50%","borderWidth":"0","width":"190px","borderStyle":"solid","height":"190px"}'
+                        <img :style='{"boxShadow":"0px 0px 0px 0px var(--publicMainColor)","borderColor":"rgba(0,0,0,.3)","borderRadius":"0%","borderWidth":"0","width":"190px","borderStyle":"solid","height":"190px"}'
                              :src="item.chanpinPhoto?baseUrl+item.chanpinPhoto.split(',')[0]:''">
                         <div class="info">
                             <div v-if="true"
@@ -242,7 +242,7 @@
                 <input type="text" v-model="searchForm.chanpinName" placeholder="农产品名称" autocomplete="off"
                        class="search-input">             
                                                 <div style="display: flex;justify-content: space-evenly;align-items: center;">
-                        <div id="btn-search" class="button-submit"><i class="layui-icon layui-icon-search"></i>搜索</div>
+                        <div id="btn-search" style="width: 350px" class="button-submit"><i class="layui-icon layui-icon-search"></i>搜索</div>
                         <div v-if="isAuth('chanpin','新增')"  @click="jump('../chanpin/add.html')" class="button-submit"><i class="layui-icon">&#xe654;</i>添加</div>
                     </div>
                 </form>
