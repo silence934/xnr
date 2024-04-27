@@ -299,7 +299,7 @@
         box-shadow: 0 0 0px rgba(30, 144, 255, .8);
 
     .login-form {
-        background-color: transparent;
+        //background-color: transparent;
         width: 100%;
         right: inherit;
         padding: 0;

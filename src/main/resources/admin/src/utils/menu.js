@@ -276,32 +276,32 @@ const menu = {
     },
             {
                 "backMenu":[
+                    // {
+                    //     "child":[
+                    //         {
+                    //             "buttons":[
+                    //                 "查看",
+                    //             ],
+                    //             "menu":"农资管理",
+                    //             "menuJump":"列表",
+                    //             "tableName":"nongzi"
+                    //         }
+                    //         ,
+                    //         {
+                    //             "buttons":[
+                    //                 "订单",
+                    //                 "查看",
+                    //                 "删除",
+                    //                 "新增"
+                    //             ],
+                    //             "menu":"农资订单管理",
+                    //             "menuJump":"列表",
+                    //             "tableName":"nongziOrder"
+                    //         }
+                    //     ],
+                    //     "menu":"农资管理"
+                    // }
                     {
-                        "child":[
-                            {
-                                "buttons":[
-                                    "查看",
-                                ],
-                                "menu":"农资管理",
-                                "menuJump":"列表",
-                                "tableName":"nongzi"
-                            }
-                            ,
-                            {
-                                "buttons":[
-                                    "订单",
-                                    "查看",
-                                    "删除",
-                                    "新增"
-                                ],
-                                "menu":"农资订单管理",
-                                "menuJump":"列表",
-                                "tableName":"nongziOrder"
-                            }
-                        ],
-                        "menu":"农资管理"
-                    }
-                    ,{
                         "child":[
                             {
                                 "buttons":[
@@ -382,12 +382,12 @@ const menu = {
                                 "buttons":[
                                     "查看",
                                 ],
-                                "menu":"公告管理",
+                                "menu":"农资管理",
                                 "menuJump":"列表",
                                 "tableName":"gonggao"
                             }
                         ],
-                        "menu":"公告管理"
+                        "menu":"农资管理"
                     }
                     ,{
                         "child":[

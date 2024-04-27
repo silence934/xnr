@@ -5,23 +5,27 @@
         <div class="menulistImg" v-if="false && 2 == 2">
           <el-image :style='{"padding":"0","boxShadow":"0 0 6px rgba(0,0,0,0)","margin":"0","borderColor":"rgba(0,0,0,0)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"auto"}' v-if="'http://codegen.caihongy.cn/20201021/cc7d45d9c8164b58b18351764eba9be1.jpg'" src="http://codegen.caihongy.cn/20201021/cc7d45d9c8164b58b18351764eba9be1.jpg" fit="cover" />
         </div>
-		<el-menu :mode="2 == 1? 'horizontal':'vertical'" :unique-opened="true" class="el-menu-demo" default-active="0">
+
+		    <el-menu :mode="2 == 1? 'horizontal':'vertical'" :unique-opened="true" class="el-menu-demo" default-active="0">
           <el-menu-item index="0" @click="menuHandler('')"><i v-if="true" class="el-icon-menu el-icon-s-home" />首页</el-menu-item>
+
           <el-submenu :index="1+''">
             <template slot="title">
-				<i v-if="true" class="el-icon-menu el-icon-user-solid" />
-				<span>个人中心</span>
+                <i v-if="true" class="el-icon-menu el-icon-user-solid" />
+                <span>个人中心</span>
             </template>
-            <el-menu-item :index="1-1" @click="menuHandler('updatePassword')">修改密码</el-menu-item>
-            <el-menu-item :index="1-2" @click="menuHandler('center')">个人信息</el-menu-item>
+            <el-menu-item :index="1-1+''" @click="menuHandler('updatePassword')">修改密码</el-menu-item>
+            <el-menu-item :index="1-2+''" @click="menuHandler('center')">个人信息</el-menu-item>
           </el-submenu>
+
           <el-submenu v-for=" (menu,index) in item.backMenu" :key="menu.menu" :index="index+2+''">
             <template slot="title">
-				<i v-if="true" class="el-icon-menu" :class="icons[index]" />
-				<span>{{ menu.menu }}</span>
+              <i v-if="true" class="el-icon-menu" :class="icons[index]" />
+              <span>{{ menu.menu }}</span>
             </template>
             <el-menu-item v-for=" (child,sort) in menu.child" :key="sort" :index="(index+2)+'-'+sort" @click="menuHandler(child.tableName)">{{ child.menu }}</el-menu-item>
           </el-submenu>
+
         </el-menu>
       </div>
     </div>
@@ -78,7 +82,7 @@ export default {
         'el-icon-stopwatch',
       ],
       menulistStyle: '${template.back.menulist.menulistStyle}',
-	  menulistBorderBottom: {},
+	    menulistBorderBottom: {},
     }
   },
   mounted() {
@@ -299,7 +303,7 @@ export default {
         border-width: 3px;
         border-style: solid;
         border-color: rgba(255, 255, 255, 1) !important;
-        background-color: var(--publicMainColor) !important;
+        background-color: #00c292 !important;
         box-shadow: 0px 0px 5px 0.5px rgba(167,159,159,1) inset;
         box-sizing: initial;
         display: flex;
@@ -337,8 +341,8 @@ export default {
         border-radius: 30px;
         border-width: 3px;
         border-style: solid;
-        border-color: rgba(255, 255, 255, 1) !important;
-        background-color: var(--publicMainColor) !important;
+        border-color: #00c292 !important;
+        background-color: #00c292 !important;
         box-shadow: 0px 0px 5px 0.5px rgba(167,159,159,1) inset;
         box-sizing: initial;
         display: flex;
@@ -392,7 +396,7 @@ export default {
         border-width: 1px 0 0 0;
         border-style: solid;
         border-color: rgba(255, 255, 255, 1);
-        background-color: var(--publicMainColor);
+        background-color: #00c2b7;
         box-shadow: 0 0 6px var(--publicSubColor);
 
         .el-menu-item {

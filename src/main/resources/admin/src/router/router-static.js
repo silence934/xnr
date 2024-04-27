@@ -30,8 +30,6 @@ import huanyuan from '@/views/modules/databaseBackup/huanyuan'
     import forum from '@/views/modules/forum/list'
     import gonggao from '@/views/modules/gonggao/list'
     import jishu from '@/views/modules/jishu/list'
-    import nongzi from '@/views/modules/nongzi/list'
-    import nongziOrder from '@/views/modules/nongziOrder/list'
     import yonghu from '@/views/modules/yonghu/list'
     import zhongzhihu from '@/views/modules/zhongzhihu/list'
     import config from '@/views/modules/config/list'
@@ -42,8 +40,6 @@ import huanyuan from '@/views/modules/databaseBackup/huanyuan'
     import dictionaryGonggao from '@/views/modules/dictionaryGonggao/list'
     import dictionaryIsdefault from '@/views/modules/dictionaryIsdefault/list'
     import dictionaryJishu from '@/views/modules/dictionaryJishu/list'
-    import dictionaryNongzi from '@/views/modules/dictionaryNongzi/list'
-    import dictionaryNongziOrder from '@/views/modules/dictionaryNongziOrder/list'
     import dictionarySex from '@/views/modules/dictionarySex/list'
 
 
@@ -125,16 +121,6 @@ const routes = [{
         component: dictionaryJishu
     }
     ,{
-        path: '/dictionaryNongzi',
-        name: '农资类型',
-        component: dictionaryNongzi
-    }
-    ,{
-        path: '/dictionaryNongziOrder',
-        name: '订单类型',
-        component: dictionaryNongziOrder
-    }
-    ,{
         path: '/dictionarySex',
         name: '性别类型',
         component: dictionarySex
@@ -195,16 +181,6 @@ const routes = [{
         path: '/jishu',
         name: '农业技术',
         component: jishu
-      }
-    ,{
-        path: '/nongzi',
-        name: '农资',
-        component: nongzi
-      }
-    ,{
-        path: '/nongziOrder',
-        name: '农资订单',
-        component: nongziOrder
       }
     ,{
         path: '/yonghu',
